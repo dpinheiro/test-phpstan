@@ -23,3 +23,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Symfony\Component\PropertyInfo\Extractor\ConstructorExtractor:
+        arguments:
+            - { param1: "@property_info.php_doc_extractor", param2: "@property_info.reflection_extractor" }
+        tags:
+            - { name: "property_info.type_extractor", priority: -999 }
